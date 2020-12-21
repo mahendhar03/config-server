@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata: 
+  name: config-server-k8s
+spec:
+  selector:
+    matchLabels:
+      app: config-server-k8s
+  replicas:
+  template:
+    metadata:
+      labels:
+        app: config-server-k8s
+    spec:
+      containers:
+        - name: config-server-k8s
+          image: config-server:1.0
+          ports:
+            - containerPort: 8093
